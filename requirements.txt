@@ -1,0 +1,27 @@
+# Core Deep Learning & PyTorch Framework
+torch
+pytorch-lightning
+torchmetrics
+
+# Transformer Models & Pretrained Encoders
+transformers
+
+# Cheminformatics & Computational Chemistry
+rdkit
+
+# Scientific Computing & Data Processing
+numpy
+pandas
+scipy
+scikit-learn
+h5py
+joblib
+openpyxl
+
+# Experiment Tracking & Logging
+wandb
+
+# Configuration, Utilities & Testing
+pyyaml
+tqdm
+pytest

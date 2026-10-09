@@ -1,0 +1,53 @@
+model:
+  d_model: 256
+  emb_size: 1024
+  n_heads: 4
+  d_ff: 512
+  dropout: 0.2
+  molformer_in_dim: 768
+  morgan_in_dim: 1024
+  morgan_radius: 3
+  dti_in_dim: 2048
+  dti_hidden_dim_1: 1024
+  dti_hidden_dim_2: 512
+  pathway_in_dim: 1152
+  # pathway_hidden_dims controls depth of pathway projection:
+  #   [1024, 512] for 1152->1024->512->256 layer-by-layer (default)
+  #   [] for direct 1152->256 linear projection
+  pathway_hidden_dims: [1024, 512]
+  pathway_hidden_dim_1: 1024
+  pathway_hidden_dim_2: 512
+  dti_dropout: 0.20
+  pathway_dropout: 0.20
+  both_biology_dropout: 0.10
+  drug_emb_dim: 256
+  use_dti: true
+  use_pathway: true
+
+  enable_drug_drug_attention: false
+  use_symmetric_fusion: false
+  e_min: 0.0
+  e_max: 1.0
+  c_min: 1.0e-6
+  c_max: 1.0e3
+  h_min: 0.1
+  h_max: 10.0
+  alpha_min: 1.0e-4
+  alpha_max: 100.0
+
+training:
+  batch_size: 128
+  epochs: 1000
+  optimizer_name: "AdamW"
+  scheduler_name: "ReduceLROnPlateau"
+  scheduler_factor: 0.5
+  scheduler_patience: 10
+  min_lr: 1.0e-6
+  lr: 1.0e-4
+
+  weight_decay: 1.0e-5
+  device: "cuda"
+  checkpoint_dir: "checkpoints/drugcell_crossattention"
+  save_top_k: 3
+  num_workers: 0
+  seed: 42
